@@ -1,0 +1,4 @@
+name: ${rootProject.name}
+version: $pluginVersion
+api-version: 1.17
+main: $pluginMain
