@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":plugin-api"))
+    implementation(project(":moveserver-api"))
 }
 
 tasks {

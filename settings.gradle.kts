@@ -1,3 +1,3 @@
-rootProject.name = "kotlin-plugin-template"
-include("plugin-api")
+rootProject.name = "move-another-server"
+include("moveserver-api")
 include("plugin")
