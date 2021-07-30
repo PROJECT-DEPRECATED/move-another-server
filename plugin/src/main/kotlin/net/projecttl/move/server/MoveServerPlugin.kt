@@ -12,14 +12,10 @@ import java.io.File
 
 class MoveServerPlugin : JavaPlugin() {
 
-    var spotList: List<String> = config.getStringList("spot")
+    var spotList: MutableList<String> = config.getStringList("spot")
 
     private var playerFile: File? = null
     private var configuration: FileConfiguration? = null
-
-    fun loadModule(serverName: String, player: Player) {
-        api(serverName, player)
-    }
 
     override fun onEnable() {
         loadPlayerList()

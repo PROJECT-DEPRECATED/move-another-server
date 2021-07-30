@@ -12,13 +12,13 @@ class PlayerJoinListener(private val plugin: MoveServerPlugin): Listener {
     @EventHandler
     fun join(event: PlayerJoinEvent) {
         val player = event.player
-        if (!plugin.playerList().contains(player.name)) {
-            val mutableList: MutableList<String> = plugin.playerList().getStringList("spot")
+        if (!plugin.playerList().getStringList("list").contains(player.name)) {
+            val mutableList: MutableList<String> = plugin.playerList().getStringList("list")
             mutableList.add(player.name)
 
             player.inventory.addItem(ItemStack(Material.CLOCK))
-
-            plugin.playerList().set("spot", mutableList)
+            player.sendMessage("[MoveServer] If you right click this clock, You'll open server list.")
+            plugin.playerList().set("list", mutableList)
         }
     }
 }

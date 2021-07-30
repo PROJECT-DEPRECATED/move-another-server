@@ -14,16 +14,14 @@ class MoveServerGUI(private val plugin: MoveServerPlugin) {
     fun openInventory(player: Player) {
         player.openInventory(
             InventoryBuilder(Component.text("Inventory"), InventoryType.CHEST_27).apply {
-                var j = 0
-                for (i in plugin.spotList) {
-                    setItem(j, ItemStack(Material.GRASS_BLOCK))
-                    registerListener(j) {
-                    plugin.api(plugin.spotList[j], player)
-                    it.isCancelled = true
-
-                    j++
+                for ((i, j) in plugin.spotList.withIndex()) {
+                    setItem(i, ItemStack(Material.GRASS_BLOCK))
+                    registerListener(i) {
+                        plugin.api(plugin.spotList[i], player)
+                        it.isCancelled = true
+                    }
                 }
-            }
-        }.build())
+            }.build()
+        )
     }
 }
