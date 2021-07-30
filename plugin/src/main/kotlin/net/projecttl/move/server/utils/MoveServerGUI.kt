@@ -11,14 +11,17 @@ import org.projecttl.api.inventorygui.utils.InventoryType
 
 class MoveServerGUI(private val plugin: MoveServerPlugin) {
 
-    fun openInventory(player: Player, spotList: HashMap<Int, String>) {
+    fun openInventory(player: Player) {
         player.openInventory(
             InventoryBuilder(Component.text("Inventory"), InventoryType.CHEST_27).apply {
-            for (i in spotList.keys) {
-                setItem(i, ItemStack(Material.GRASS_BLOCK))
-                registerListener(i) {
-                    plugin.api(spotList[i]!!, player)
+                var j = 0
+                for (i in plugin.spotList) {
+                    setItem(j, ItemStack(Material.GRASS_BLOCK))
+                    registerListener(j) {
+                    plugin.api(plugin.spotList[j], player)
                     it.isCancelled = true
+
+                    j++
                 }
             }
         }.build())
