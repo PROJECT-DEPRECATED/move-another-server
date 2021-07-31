@@ -15,7 +15,14 @@ class MoveServerGUI(private val plugin: MoveServerPlugin) {
         player.openInventory(
             InventoryBuilder(Component.text("Inventory"), InventoryType.CHEST_27).apply {
                 for ((i, j) in plugin.spotList.withIndex()) {
-                    setItem(i, ItemStack(Material.GRASS_BLOCK))
+                    val servers = ItemStack(Material.GRASS_BLOCK).let {
+                        val itemMeta = it.itemMeta
+                        itemMeta?.setDisplayName(plugin.spotList[i])
+                        it.itemMeta = itemMeta
+
+                        it
+                    }
+                    setItem(i, servers)
                     registerListener(i) {
                         plugin.api(plugin.spotList[i], player)
                         it.isCancelled = true
