@@ -17,7 +17,6 @@ subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
     repositories {
-        google()
         maven("https://jitpack.io")
         maven("https://oss.sonatype.org/content/repositories/snapshots")
         maven("https://repo.codemc.org/repository/maven-public/")
@@ -39,7 +38,6 @@ subprojects {
 
     dependencies {
         implementation(kotlin("stdlib"))
-        implementation("com.google.code.gson:gson:2.8.7")
         // implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0") This is coroutines code
         when (type) {
             "paper" -> {
