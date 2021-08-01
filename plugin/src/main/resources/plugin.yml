@@ -3,6 +3,9 @@ version: $pluginVersion
 api-version: 1.17
 main: $pluginMain
 
+depend:
+  - InventoryGUI
+
 commands:
   move-server:
     usage: /move-server

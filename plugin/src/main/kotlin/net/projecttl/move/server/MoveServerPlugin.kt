@@ -12,7 +12,7 @@ import java.io.File
 
 class MoveServerPlugin : JavaPlugin() {
 
-    var spotList: MutableList<String> = config.getStringList("spot")
+    var spotList: MutableList<String> = config.getStringList("list")
 
     private var playerFile: File? = null
     private var configuration: FileConfiguration? = null
