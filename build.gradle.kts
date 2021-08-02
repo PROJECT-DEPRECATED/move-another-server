@@ -2,8 +2,8 @@ plugins {
     kotlin("jvm") version "1.5.21"
 }
 
-group = properties["pluginGroup"]!!
-version = properties["pluginVersion"]!!
+group = "net.projecttl"
+version = "1.0.0"
 
 var type = properties["BukkitAPI"]!!
 
@@ -15,6 +15,7 @@ allprojects {
 
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "org.jetbrains.dokka")
 
     repositories {
         mavenCentral()

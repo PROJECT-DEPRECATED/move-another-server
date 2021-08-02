@@ -1,10 +1,7 @@
 name: ${rootProject.name}
-version: $pluginVersion
+version: ${rootProject.version}
 api-version: 1.17
 main: $pluginMain
-
-depend:
-  - InventoryGUI
 
 commands:
   move-server:
