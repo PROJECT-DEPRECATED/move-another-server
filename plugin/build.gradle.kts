@@ -5,11 +5,6 @@ plugins {
 group = rootProject.group
 version = rootProject.version
 
-val pluginMain = "net.projecttl.move.server.MoveServerPlugin"
-
-repositories {
-}
-
 dependencies {
     implementation(project(":moveserver-api"))
 }
