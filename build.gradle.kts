@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.5.21"
+    id("org.jetbrains.dokka") version "1.5.0"
 }
 
 group = "net.projecttl"
