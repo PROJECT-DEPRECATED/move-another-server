@@ -11,13 +11,16 @@ import org.bukkit.entity.Player
 import java.io.File
 
 class MoveServerPlugin : JavaPlugin() {
-
-    var spotList: MutableList<String> = config.getStringList("list")
+    companion object {
+        var instance: MoveServerPlugin? = null
+        var spotList: MutableList<String> = instance?.config!!.getStringList("list")
+    }
 
     private var playerFile: File? = null
     private var configuration: FileConfiguration? = null
 
     override fun onEnable() {
+        instance = this
         loadPlayerList()
         server.pluginManager.apply {
             registerEvents(MoveItemListener(this@MoveServerPlugin), this@MoveServerPlugin)

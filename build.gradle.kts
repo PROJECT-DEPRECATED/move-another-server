@@ -17,6 +17,7 @@ subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
     repositories {
+        mavenCentral()
         google()
         maven("https://jitpack.io")
         maven("https://oss.sonatype.org/content/repositories/snapshots")
@@ -40,10 +41,11 @@ subprojects {
     dependencies {
         implementation(kotlin("stdlib"))
         implementation("com.google.code.gson:gson:2.8.7")
+        implementation("net.projecttl:InventoryGUI-api:4.0.1")
+        implementation("net.kyori:adventure-api:4.7.0")
         // implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0") This is coroutines code
         when (type) {
             "paper" -> {
-                implementation("net.kyori:adventure-api:4.7.0")
                 compileOnly("com.destroystokyo.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
             }
 
@@ -55,7 +57,5 @@ subprojects {
         implementation("net.md-5:bungeecord-api:1.17-R0.1-SNAPSHOT")
         implementation("io.github.leonardosnt:bungeechannelapi:1.0.0-SNAPSHOT")
         // compileOnly("com.comphenix.protocol:ProtocolLib:4.6.0") ProtocolLib
-
-        compileOnly("com.github.ProjectTL12345:InventoryGUI:3.1.1")
     }
 }

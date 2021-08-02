@@ -6,9 +6,9 @@ import org.bukkit.ChatColor
 class ServerListUtil(private val plugin: MoveServerPlugin) {
 
     fun addServer(spotName: String): String {
-        return if (!plugin.spotList.contains(spotName)) {
-            plugin.spotList.add(spotName)
-            plugin.config.set("list", plugin.spotList)
+        return if (!MoveServerPlugin.spotList.contains(spotName)) {
+            MoveServerPlugin.spotList.add(spotName)
+            plugin.config.set("list", MoveServerPlugin.spotList)
 
             "[MoveServer] ${ChatColor.GREEN}$spotName is successful added"
         } else {
@@ -17,9 +17,9 @@ class ServerListUtil(private val plugin: MoveServerPlugin) {
     }
 
     fun removeServer(spotName: String): String {
-        return if (plugin.spotList.contains(spotName)) {
-            plugin.spotList.remove(spotName)
-            plugin.config.set("list", plugin.spotList)
+        return if (MoveServerPlugin.spotList.contains(spotName)) {
+            MoveServerPlugin.spotList.remove(spotName)
+            plugin.config.set("list", MoveServerPlugin.spotList)
 
             "[MoveServer] ${ChatColor.GREEN}$spotName is successful removed"
         } else {
@@ -27,7 +27,7 @@ class ServerListUtil(private val plugin: MoveServerPlugin) {
         }
     }
 
-    fun getSpot(): MutableList<String> {
-        return plugin.spotList
+    fun listServer(): MutableList<String> {
+        return MoveServerPlugin.spotList
     }
 }

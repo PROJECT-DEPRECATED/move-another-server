@@ -20,6 +20,13 @@ class MoveCommand(private val plugin: MoveServerPlugin): CommandExecutor, TabCom
                         return true
                     }
 
+                    1 -> {
+                        if (args[0] == "list") {
+                            sender.sendMessage(ServerListUtil(plugin).listServer().toString())
+                            return true
+                        }
+                    }
+
                     2 -> {
                         val serverName = args[1]
                         when (args[0]) {
