@@ -2,28 +2,27 @@ package net.projecttl.move.server.utils
 
 import net.kyori.adventure.text.Component
 import net.projecttl.api.move.server.api
+import net.projecttl.inventory.gui.gui
+import net.projecttl.inventory.gui.utils.InventoryType
 import net.projecttl.move.server.MoveServerPlugin
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import org.projecttl.api.inventorygui.InventoryBuilder
-import org.projecttl.api.inventorygui.utils.InventoryType
 
 class MoveServerGUI(private val plugin: MoveServerPlugin) {
 
     fun openInventory(player: Player) {
-        player.openInventory(
-            InventoryBuilder(Component.text("Inventory"), InventoryType.CHEST_27).apply {
-                var j = 0
-                for (i in plugin.spotList) {
-                    setItem(j, ItemStack(Material.GRASS_BLOCK))
-                    registerListener(j) {
-                    plugin.api(plugin.spotList[j], player)
-                    it.isCancelled = true
+        val spotList = plugin.spotList
+        player.openInventory(plugin.gui(InventoryType.CHEST_27, Component.text("Move ServerGUI")) {
+            var j = 0
+            for (i in spotList) {
+                slot(j, ItemStack(Material.GRASS_BLOCK)) {
+                    plugin.api(spotList[j], player)
+                    isCancelled = true
 
                     j++
                 }
             }
-        }.build())
+        })
     }
 }

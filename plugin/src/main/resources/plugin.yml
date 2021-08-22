@@ -2,3 +2,8 @@ name: ${rootProject.name}
 version: $pluginVersion
 api-version: 1.17
 main: $pluginMain
+
+commands:
+  mserver:
+    description: move-server's main command
+    usage: /mserver or /mserver <options>

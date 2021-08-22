@@ -17,10 +17,6 @@ class MoveServerPlugin : JavaPlugin() {
     private var playerFile: File? = null
     private var configuration: FileConfiguration? = null
 
-    fun loadModule(serverName: String, player: Player) {
-        api(serverName, player)
-    }
-
     override fun onEnable() {
         loadPlayerList()
         server.pluginManager.apply {
@@ -28,7 +24,7 @@ class MoveServerPlugin : JavaPlugin() {
             registerEvents(PlayerJoinListener(this@MoveServerPlugin), this@MoveServerPlugin)
         }
 
-        getCommand("move-server")?.setExecutor(MoveCommand(this))
+        getCommand("mserver")?.setExecutor(MoveCommand(this))
     }
 
     override fun onDisable() {
