@@ -4,5 +4,6 @@ api-version: 1.17
 main: net.projecttl.move.server.MoveServerPlugin
 
 commands:
-  move-server:
-    usage: /move-server
+  mserver:
+    description: move-server's main command
+    usage: /mserver or /mserver <options>

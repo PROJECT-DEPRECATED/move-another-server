@@ -27,7 +27,7 @@ class MoveServerPlugin : JavaPlugin() {
             registerEvents(PlayerJoinListener(this@MoveServerPlugin), this@MoveServerPlugin)
         }
 
-        getCommand("move-server")?.setExecutor(MoveCommand(this))
+        getCommand("mserver")?.setExecutor(MoveCommand(this))
     }
 
     override fun onDisable() {
