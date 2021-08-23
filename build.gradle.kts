@@ -1,11 +1,10 @@
 plugins {
     kotlin("jvm") version "1.5.21"
+    id("org.jetbrains.dokka") version "1.5.0"
 }
 
-group = properties["pluginGroup"]!!
-version = properties["pluginVersion"]!!
-
-var type = properties["BukkitAPI"]!!
+group = "net.projecttl"
+version = "1.0.0"
 
 allprojects {
     repositories {
@@ -15,6 +14,7 @@ allprojects {
 
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "org.jetbrains.dokka")
 
     repositories {
         mavenCentral()
@@ -43,18 +43,11 @@ subprojects {
     dependencies {
         implementation(kotlin("stdlib"))
         implementation("com.google.code.gson:gson:2.8.7")
+        implementation("net.projecttl:InventoryGUI-api:4.0.1")
+        implementation("net.kyori:adventure-api:4.7.0")
         // implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0") This is coroutines code
         implementation("net.kyori:adventure-api:4.7.0")
-        when (type) {
-            "paper" -> {
-                compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
-            }
-
-            "spigot" -> {
-                implementation("org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT")
-            }
-        }
-
+        compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
         implementation("net.md-5:bungeecord-api:1.17-R0.1-SNAPSHOT")
         implementation("io.github.leonardosnt:bungeechannelapi:1.0.0-SNAPSHOT")
         // compileOnly("com.comphenix.protocol:ProtocolLib:4.6.0") ProtocolLib

@@ -5,6 +5,7 @@ import net.projecttl.api.move.server.api
 import net.projecttl.inventory.gui.gui
 import net.projecttl.inventory.gui.utils.InventoryType
 import net.projecttl.move.server.MoveServerPlugin
+import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack

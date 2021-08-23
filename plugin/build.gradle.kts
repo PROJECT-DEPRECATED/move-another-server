@@ -5,9 +5,6 @@ plugins {
 group = rootProject.group
 version = rootProject.version
 
-repositories {
-}
-
 dependencies {
     implementation(project(":moveserver-api"))
 }
